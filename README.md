@@ -163,5 +163,27 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 ## Restart Apache
 1. Restart Apache `service apache2 restart `
 
+## Set ssh login using keys
+1. generate keys on local machine using`ssh-keygen` ; then save the private key in `~/.ssh` on local machine
+2. deploy public key on developement enviroment
+
+	On you virtual machine:
+	```
+	$ su - grader
+	$ mkdir .ssh
+	$ touch .ssh/authorized_keys
+	$ vim .ssh/authorized_keys
+	```
+	Copy the public key generated on your local machine to this file and save
+	```
+	$ chmod 700 .ssh
+	$ chmod 644 .ssh/authorized_keys
+	```
+	
+3. reload SSH using `service ssh restart`
+4. now you can use ssh to login with the new user you created
+
+	`ssh -i [privateKeyFilename] grader@52.32.104.91
+	
 ## References:
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
