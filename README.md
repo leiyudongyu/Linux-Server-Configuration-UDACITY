@@ -103,15 +103,15 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 2. Use `cd /var/www` to move to the /var/www directory 
 3. Create the application directory `mkdir FlaskApp`
 4. Move inside this directory using `cd FlaskApp`
-5. Clone the Catalog App to the virtual machine `git clone https://github.com/kongling893/Item_Catalog_UDACITY.git`
-6. Rename the project's name `sudo mv ./Item_Catalog_UDACITY ./FlaskApp`
+5. Clone the Catalog App to the virtual machine `git clone https://github.com/leiyudongyu/Car-Dealer-Shops.git`
+6. Rename the project's name `sudo mv ./Car-Dealer-Shops ./FlaskApp`
 7. Move to the inner FlaskApp directory using `cd FlaskApp`
-8. Rename `website.py` to `__init__.py` using `sudo mv website.py __init__.py`
-9. Edit `database_setup.py`, `website.py` and `functions_helper.py` and change `engine = create_engine('sqlite:///toyshop.db')` to `engine = create_engine('postgresql://catalog:password@localhost/catalog')`
-10. Install pip `sudo apt-get install python-pip`
-11. Use pip to install dependencies `sudo pip install -r requirements.txt`
-12. Install psycopg2 `sudo apt-get -qqy install postgresql python-psycopg2`
-13. Create database schema `sudo python database_setup.py`
+8. Edit `database_setup.py`, `__init__` and change `engine = create_engine('sqlite:///toyshop.db')` to `engine = create_engine('postgresql://catalog:password@localhost/catalog')`
+9. Install pip `sudo apt-get install python-pip`
+10. Use pip to install dependencies `sudo pip install -r requirements.txt`
+11. Install psycopg2 `sudo apt-get -qqy install postgresql python-psycopg2`
+12. Create database schema `sudo python database_setup.py`
+13. Install other required application
 
 ## Configure and Enable a New Virtual Host
 1. Create FlaskApp.conf to edit: `sudo nano /etc/apache2/sites-available/FlaskApp.conf`
@@ -119,8 +119,8 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 	
 	```
 	<VirtualHost *:80>
-		ServerName 52.24.125.52
-		ServerAdmin qiaowei8993@gmail.com
+		ServerName 52.32.104.91
+		ServerAdmin leiyu0323ly@gmail.com
 		WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
 		<Directory /var/www/FlaskApp/FlaskApp/>
 			Order allow,deny
@@ -155,11 +155,11 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 	sys.path.insert(0,"/var/www/FlaskApp/")
 
 	from FlaskApp import app as application
-	application.secret_key = 'Add your secret key'
+	application.secret_key = 'super secret key'
 	```
 
 ## Restart Apache
-1. Restart Apache `sudo service apache2 restart `
+1. Restart Apache `service apache2 restart `
 
 ## References:
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
