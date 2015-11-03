@@ -179,11 +179,11 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 	$ chmod 700 .ssh
 	$ chmod 644 .ssh/authorized_keys
 	```
-	
-3. reload SSH using `service ssh restart`
-4. now you can use ssh to login with the new user you created
+3. go /etc/ssh/sshd_config, change without-password to no.
+4. reload SSH using `service ssh restart`
+5. now you can use ssh to login with the new user you created
 
-	`ssh -i [privateKeyFilename] grader@52.32.104.91
+	`ssh -i [privateKeyFilename] grader@52.32.104.91`
 	
 ## References:
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
