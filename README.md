@@ -3,7 +3,7 @@ This is the fifth project for "Full Stack Web Developer Nanodegree" on Udacity.
 
 In this project, a Linux virtual machine needs to be configurated to support the Item Catalog website.
 
-You can visit //http://52.32.104.91/ for the website deployed.
+You can visit http://52.32.166.8/ for the website deployed.
 
 ## Tasks
 1. Launch your Virtual Machine with your Udacity account
@@ -34,7 +34,7 @@ You can visit //http://52.32.104.91/ for the website deployed.
 
 	Public IP Address
 
-	52.32.104.91
+	52.32.166.8
 	
 	Private Key ( is not provided here. )
 	
@@ -121,7 +121,7 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 	
 	```
 	<VirtualHost *:80>
-		ServerName 52.32.104.91
+		ServerName 52.32.166.8
 		ServerAdmin leiyu0323ly@gmail.com
 		WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
 		<Directory /var/www/FlaskApp/FlaskApp/>
@@ -183,7 +183,7 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 4. reload SSH using `service ssh restart`
 5. now you can use ssh to login with the new user you created
 
-	`ssh -i [privateKeyFilename] grader@52.32.104.91`
+	`ssh -i [privateKeyFilename] grader@52.32.166.8`
 	
 ## References:
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
